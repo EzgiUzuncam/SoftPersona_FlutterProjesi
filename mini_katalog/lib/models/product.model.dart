@@ -1,0 +1,28 @@
+class Product {
+  final int id;
+  final String title;
+  final String image;
+  final double price;
+  final String description;
+  final Map<String, String> features;
+
+  Product({
+    required this.id,
+    required this.title,
+    required this.image,
+    required this.price,
+    required this.description,
+    required this.features,
+  });
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'],
+      title: json['title'],
+      image: json['image'],
+      price: json['price'].toDouble(),
+      description: json['description'],
+      features: Map<String, String>.from(json['features'] ?? {}),
+    );
+  }
+}
